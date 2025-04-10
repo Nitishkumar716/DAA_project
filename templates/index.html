@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Kruskal MST - Network Design</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  max-width: 700px;
+  margin: auto;
+}
+input, button, select {
+  padding: 6px;
+  margin: 5px 0;
+  font-size: 14px;
+}
+.section {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 4px solid #2196F3;
+  background-color: #f0f8ff;
+}
+.edge-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.edge-row input {
+  width: 80px;
+}
+#result {
+  white-space: pre-line;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+    </style>
+</head>
+<body>
+
+<h2>🔌 Network Design using Kruskal's MST Algorithm</h2>
+
+<form method="POST">
+  <div class="section">
+    <label>Number of Computers (Nodes): </label>
+    <input type="number" name="numNodes" min="2" value="4" required />
+  </div>
+
+  <div class="section">
+    <label>Enter Edges (Format: src dest weight, one per line):</label><br>
+    <textarea name="edgesText" rows="6" cols="50" placeholder="0 1 10\n1 2 5\n2 3 7" required></textarea>
+  </div>
+
+  <div class="section">
+    <button type="submit">🧖️ Calculate MST</button>
+  </div>
+</form>
+
+{% if result %}
+<h3>📊 Result:</h3>
+<div id="result">{{ result|safe }}</div>
+{% endif %}
+
+</body>
+</html>
